@@ -1,5 +1,5 @@
 # Proiect3JocRPG
-1. Instalare SQLite
+1. Instalare SQLite pentru Baza de Date
 
 Cum sa iti aplici baza de date 
 https://www.sqlite.org/index.html -> Downloads -> Precompiled Binaries -> sqlite-tools-win-x64-3470000.zip -> extract -> ca sa iti pornesti baza de date -> sqlite3.exe (sau la mine pe win11 e app(.exe))

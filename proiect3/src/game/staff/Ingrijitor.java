@@ -1,6 +1,6 @@
-package game;
+package game.staff;
 
-public class Ingrijitor extends Angajat{
+public class Ingrijitor extends Angajat {
     private String parola = "ingrijitor123";
     private String nume;
 

@@ -31,20 +31,27 @@ public class StocHrana
     }
 
     public boolean scadeCantitate(String numeProdus, int cantitateScazut){
+        boolean produsGasit = false;
         for(int i = 0; i < model.getRowCount(); i++) {
             String denumireProdus = (String) model.getValueAt(i, 0);
             if (denumireProdus.equalsIgnoreCase(numeProdus)) {
+                produsGasit = true;
                 int cantitateActuala = (int) model.getValueAt(i, 1);
                 if(cantitateActuala >= cantitateScazut){
                     model.setValueAt(cantitateActuala - cantitateScazut, i, 1);
-                    tabelStoc.revalidate();
-                    tabelStoc.repaint();
+                    model.fireTableDataChanged();
+                    return true;
                 } else {
+                    JOptionPane.showMessageDialog(null, "Cantitate insuficienta in stoc!");
                     return false;
                 }
             }
         }
-        return true;
+        if(!produsGasit){
+            JOptionPane.showMessageDialog(null,  "Produsul nu a fost gasit in stoc!");
+        }
+        return false;
+
     }
     public void StergeProduse(){
         model.setRowCount(0);

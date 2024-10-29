@@ -7,8 +7,8 @@ import java.awt.event.ActionListener;
 
 public class Monstru extends StocHrana{
 
-    static JButton dragonJPG;
-    JButton calJPG;
+    static JButton Ionel;
+    static JButton Gica;
     JButton vacaJPG;
     Object[] options = {"Hraneste dragonul", "Vezi info despre dragon"};
     private static JFrame info;
@@ -16,13 +16,13 @@ public class Monstru extends StocHrana{
     public Monstru() {
 
 
-        ImageIcon dragon = new ImageIcon("C:\\Users\\dariu\\OneDrive\\Desktop\\Proiect3JocRPG\\proiect3\\imagini\\180px-lightningdragonstore.png");
-        dragonJPG = new JButton(dragon);
-        dragonJPG.setBounds(285, 70, 230, 230);
-        dragonJPG.setContentAreaFilled(false);
-        dragonJPG.setOpaque(false);
-        dragonJPG.setBorderPainted(false);
-        dragonJPG.addActionListener(new ActionListener() {
+        ImageIcon dragon1 = new ImageIcon("C:\\Users\\dariu\\OneDrive\\Desktop\\Proiect3JocRPG\\proiect3\\imagini\\180px-lightningdragonstore.png");
+        Ionel = new JButton(dragon1);
+        Ionel.setBounds(285, 70, 230, 230);
+        Ionel.setContentAreaFilled(false);
+        Ionel.setOpaque(false);
+        Ionel.setBorderPainted(false);
+        Ionel.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
@@ -30,15 +30,11 @@ public class Monstru extends StocHrana{
                         JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
 
                 if(actiune == 0){
+                    Hraneste();
 
-                String produs = JOptionPane.showInputDialog(null, "Cu ce produs doresti sa hranesti dragonul?", "Intrebare", JOptionPane.QUESTION_MESSAGE);
-                String cantitate = JOptionPane.showInputDialog(null, "Ce cantitate doresti sa oferi dragonului?", "Intrebare", JOptionPane.QUESTION_MESSAGE);
-                if(scadeCantitate(produs, Integer.parseInt(cantitate))) {
-                    scadeCantitate(produs, Integer.parseInt(cantitate));
-
-                }} else if(actiune == 1){
+                } else if(actiune == 1){
                     getInfo("<html> <br> <br>" +
-                            "  Nume: Fulgerul Cerurilor<br>" +
+                            "  Nume: Ionel <br>" +
                             "<br> <br>" +
                             "*  Tip: Dragon al furtunilor<br>" +
                             "<br> <br>" +
@@ -74,12 +70,59 @@ public class Monstru extends StocHrana{
             }
         });
 
-        ImageIcon cal = new ImageIcon("/home/sebi_programatorul/Desktop/Proiect2/Proiect2/638607217752048766.png");
-        calJPG = new JButton(cal);
-        calJPG.setBounds(285, 300, 230, 230);
-        calJPG.setContentAreaFilled(false);
-        calJPG.setOpaque(false);
-        calJPG.setBorderPainted(false);
+        ImageIcon dragon2 = new ImageIcon("C:\\Users\\dariu\\OneDrive\\Desktop\\Proiect3JocRPG\\proiect3\\imagini\\MarbleDragonStore.png");
+        Gica = new JButton(dragon2);
+        Gica.setVisible(true);
+        Gica.setBounds(285, 300, 230, 230);
+        Gica.setContentAreaFilled(false);
+        Gica.setOpaque(false);
+        Gica.setBorderPainted(false);
+
+        Gica.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int actiune = JOptionPane.showOptionDialog(null, "Ce actiune doresti sa aplici?", "Alege o optiune", JOptionPane.YES_NO_OPTION,
+                        JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+                if(actiune == 0){
+                    Hraneste();
+                } else if(actiune == 1){
+                    getInfo("<html> <br> <br>" +
+                            "Nume: Gică <br>" +
+                            "<br> <br>" +
+                            "* Tip: Dragon alb mitic <br>" +
+                            "<br> <br>" +
+                            "* Înălțime: Aproximativ 12 metri în poziție ridicată <br>" +
+                            "<br> <br>" +
+                            "* Lungime: 25 de metri de la bot la vârful cozii <br>" +
+                            "<br> <br>" +
+                            "* Aripi: Armură aurie, cu membrane translucide ce strălucesc în lumina soarelui, având o anvergură de 35 de metri <br>" +
+                            "<br> <br>" +
+                            "* Solzi: Scânteietori, de un alb pur cu reflexii aurii, care strălucesc în lumina <br>" +
+                            "<br> <br>" +
+                            "* Ochii: De un albastru profund, strălucind ca două safire <br>" +
+                            "<br> <br>" +
+                            "* Puterile: <br>" +
+                            "<br> <br>" +
+                            "* Capabil să invoce zăpezi și furtuni de gheață <br>" +
+                            "<br> <br>" +
+                            "* Respiră un foc alb, capabil să înghețe și să topească în același timp <br>" +
+                            "<br> <br>" +
+                            "* Abilitatea de a se camufla în zăpadă și ceață <br>" +
+                            "<br> <br>" +
+                            "* Personalitate: <br>" +
+                            "<br> <br>" +
+                            "* Înțelept și calm, cu un simț al dreptății <br>" +
+                            "<br> <br>" +
+                            "* Protector al teritoriului său, dar cu o natură prietenoasă față de cei care îi respectă <br>" +
+                            "<br> <br>" +
+                            "* Loial și generos cu cei care demonstrează curaj <br>" +
+                            "<br> <br>" +
+                            "* Habitat preferat: Vârfurile munților acoperiți de zăpadă, unde poate observa regatul său <br>" +
+                            "<br> <br>" +
+                            "</html>");
+                }
+            }
+        });
 
         ImageIcon vaca = new ImageIcon("/home/sebi_programatorul/Desktop/Proiect2/Proiect2/637577398224101135.png");
         vacaJPG = new JButton(vaca);
@@ -89,14 +132,22 @@ public class Monstru extends StocHrana{
         vacaJPG.setBorderPainted(false);
     }
 
-    public static JButton getPorc(){
-        return dragonJPG;
+    public static JButton getIonel(){
+        return Ionel;
     }
-    public JButton getCalJPG(){
-        return this.calJPG;
+    public static JButton getGica(){
+        return Gica;
     }
     public JButton getVacaJPG(){
         return this.vacaJPG;
+    }
+
+    private void Hraneste() {
+        String produs = JOptionPane.showInputDialog(null, "Cu ce produs doresti sa hranesti dragonul?", "Intrebare", JOptionPane.QUESTION_MESSAGE);
+        String cantitate = JOptionPane.showInputDialog(null, "Ce cantitate doresti sa oferi dragonului?", "Intrebare", JOptionPane.QUESTION_MESSAGE);
+        if (scadeCantitate(produs, Integer.parseInt(cantitate))) {
+            JOptionPane.showMessageDialog(null, "Ai hranit dragonul cu succes!");
+        }
     }
 
     private static JFrame getInfo(String infoText){

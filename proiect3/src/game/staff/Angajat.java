@@ -1,4 +1,4 @@
-package game;
+package game.staff;
 
 public class Angajat {
 

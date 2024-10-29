@@ -1,5 +1,7 @@
 package game;
 
+import game.staff.*;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -7,7 +9,8 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class UI implements  ActionListener{
+
+public class DragonCityGUI implements  ActionListener{
 
         private static JPanel panel;
         private static JFrame frame;
@@ -33,18 +36,18 @@ public class UI implements  ActionListener{
         ));
         private ArrayList<Produs> listaProduse = new ArrayList<>();
 
-        public UI() {
+        public DragonCityGUI() {
 
             initalizareUI();
         }
 
         public void initalizareUI() {
 
-            panel = new JPanel();
+            panel = new BackgroundPanel();
 
             frame = new JFrame();
 
-            frame.setSize(500, 500);
+            frame.setSize(600, 600);
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             panel.setBackground(Color.ORANGE);
 
@@ -52,13 +55,14 @@ public class UI implements  ActionListener{
             panel.setLayout(null);
 
             panelLogin = new JPanel();
-            panelLogin.setBounds(50, 100, 400, 200);
+            panelLogin.setBounds(100, 200, 400, 200);
             panelLogin.setLayout(null);
+            panelLogin.setOpaque(false);
             panel.add(panelLogin);
 
-            titlu = new JLabel("Bun venit in aplicatia de gestionare a firmei NORD SRL");
-            titlu.setFont(new Font("Georgia", Font.BOLD, 15));
-            titlu.setBounds(10, 10, 500, 25);
+            titlu = new JLabel("Dragon City");
+            titlu.setFont(new Font("Georgia", Font.BOLD, 25));
+            titlu.setBounds(220, 180, 500, 30);
             panel.add(titlu);
 
 
@@ -139,7 +143,7 @@ public class UI implements  ActionListener{
             titlu.setBounds(10, 10, 500, 25);
             titlu.setText("Functie: " + intUtil.getText());
             JLabel autoritate = new JLabel("Autoritatea ta: " + angajat.getAutoritate());
-            autoritate.setFont(new Font("Georgia", Font.BOLD, 15));
+            autoritate.setFont(new Font("Georgia", Font.BOLD, 25));
             autoritate.setBounds(290, 10, 210, 25);
             panel.add(autoritate);
             panel.revalidate();
@@ -158,11 +162,12 @@ public class UI implements  ActionListener{
 
             ListAngajati.setAlignmentX(Component.CENTER_ALIGNMENT);
             ListAngajati.setForeground(Color.ORANGE);
+            ListAngajati.setBackground(Color.GRAY);
+            ListAngajati.setOpaque(true);
             ListAngajati.setBorder(BorderFactory.createCompoundBorder(
                     BorderFactory.createLineBorder(Color.ORANGE, 2),
                     BorderFactory.createEmptyBorder(10, 20, 10, 20)
             ));
-            ListAngajati.setContentAreaFilled(false);
             panelButon.add(Box.createRigidArea(new Dimension(0, 10)));
             panelButon.add(ListAngajati);
 
@@ -244,6 +249,8 @@ public class UI implements  ActionListener{
             JButton Stoc = new JButton("Stoc Hrana");
             Stoc.setAlignmentX(Component.CENTER_ALIGNMENT);
             Stoc.setForeground(Color.ORANGE);
+            Stoc.setBackground(Color.gray);
+            Stoc.setOpaque(true);
             Stoc.setBorder(BorderFactory.createCompoundBorder(
                     BorderFactory.createLineBorder(Color.ORANGE, 2),
                     BorderFactory.createEmptyBorder(10, 20, 10, 20)
@@ -319,6 +326,8 @@ public class UI implements  ActionListener{
 
             Grajduri.setAlignmentX(Component.CENTER_ALIGNMENT);
             Grajduri.setForeground(Color.ORANGE);
+            Grajduri.setBackground(Color.green);
+            Grajduri.setOpaque(true);
             Grajduri.setBorder(BorderFactory.createCompoundBorder(
                     BorderFactory.createLineBorder(Color.ORANGE, 2),
                     BorderFactory.createEmptyBorder(10, 20, 10, 20)
@@ -328,13 +337,27 @@ public class UI implements  ActionListener{
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     panelButon.setVisible(false);
-                    panel.add(Monstru.getPorc());
+                    panel.add(Monstru.getIonel());
+                    panel.add(Monstru.getGica());
                     autoritate.setBounds(570, 10, 210, 25);
                     frame.setSize(800, 800);
 
 
-                }
+                    JButton buttonBack = back();
+                    panel.add(buttonBack);
+                    buttonBack.setVisible(true);
+                    buttonBack.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            panelButon.setVisible(true);
+                            buttonBack.setVisible(false);
+                            panel.remove(Monstru.getIonel());
+                            panel.remove(Monstru.getGica());
+                            frame.setSize(500, 500);
+                        }
+                    });
 
+                }
             });
 
 
@@ -342,20 +365,36 @@ public class UI implements  ActionListener{
             panelButon.add(Box.createRigidArea(new Dimension(0, 10)));
             panelButon.add(Grajduri);
 
-            JButton Salariu = new JButton("Salariile mele");
-            Salariu.setAlignmentX(Component.CENTER_ALIGNMENT);
-            Salariu.setForeground(Color.ORANGE);
-            Salariu.setBorder(BorderFactory.createCompoundBorder(
+            JButton Batalie = new JButton("Intra intr-o noua batalie!");
+            Batalie.setAlignmentX(Component.CENTER_ALIGNMENT);
+            Batalie.setForeground(Color.ORANGE);
+            Batalie.setBackground(Color.green);
+            Batalie.setOpaque(true);
+            Batalie.setBorder(BorderFactory.createCompoundBorder(
                     BorderFactory.createLineBorder(Color.ORANGE, 2),
                     BorderFactory.createEmptyBorder(10, 20, 10, 20)
             ));
-            Salariu.setContentAreaFilled(false);
+            Batalie.setContentAreaFilled(false);
             panelButon.add(Box.createRigidArea(new Dimension(0, 10)));
-            panelButon.add(Salariu);
+            panelButon.add(Batalie);
+            FightLogic batalie = new FightLogic();
+
+            Batalie.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    panelButon.setVisible(false);
+                    panel.add(batalie.getBatalie());
+                    panel.setVisible(true);
+                    panel.revalidate();
+                    panel.repaint();
+                }
+            });
 
             JButton Parteneri = new JButton("Parteneri");
             Parteneri.setAlignmentX(Component.CENTER_ALIGNMENT);
             Parteneri.setForeground(Color.ORANGE);
+            Parteneri.setOpaque(true);
+            Parteneri.setBackground(Color.gray);
             Parteneri.setBorder(BorderFactory.createCompoundBorder(
                     BorderFactory.createLineBorder(Color.ORANGE, 2),
                     BorderFactory.createEmptyBorder(10, 20, 10, 20)
@@ -365,7 +404,8 @@ public class UI implements  ActionListener{
             panelButon.add(Parteneri);
 
             panelButon.add(Box.createVerticalGlue());
-            panelButon.setBounds(125, 125, 250, 250);
+            panelButon.setOpaque(false);
+            panelButon.setBounds(175, 175, 250, 250);
             panel.add(panelButon);
             panel.revalidate();
             panel.repaint();
@@ -391,7 +431,10 @@ public class UI implements  ActionListener{
             backButton.setBorderPainted(false);
             return backButton;
         }
+
+
     }
+
 
 
 

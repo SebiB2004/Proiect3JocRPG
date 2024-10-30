@@ -1,9 +1,11 @@
-package game;
+package game.logic;
+
+import game.Monstru;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class FightLogic extends Monstru{
+public class FightLogic extends Monstru {
     private JPanel batalie;
 
     public FightLogic(){

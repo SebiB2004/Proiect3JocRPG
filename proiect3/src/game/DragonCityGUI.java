@@ -1,5 +1,6 @@
 package game;
 
+import game.logic.FightLogic;
 import game.staff.*;
 
 import javax.swing.*;
@@ -49,7 +50,6 @@ public class DragonCityGUI implements  ActionListener{
 
             frame.setSize(600, 600);
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            panel.setBackground(Color.ORANGE);
 
             frame.add(panel);
             panel.setLayout(null);

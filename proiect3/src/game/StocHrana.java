@@ -52,7 +52,6 @@ public class StocHrana {
     }
 
     public void adaugaProdus(Produs produs){
-        model.addRow(new Object[]{produs.getNume(), produs.getCantitate(), produs.getPret()});
         dbHelper.insertProdus(produs.getNume(), produs.getCantitate(), produs.getPret());
     }
 

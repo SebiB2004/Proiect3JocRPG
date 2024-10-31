@@ -1,13 +1,11 @@
 package game.logic;
-
-public class AtacFizic implements Atac {
+public class SufluDeFoc implements Atac {
     @Override
     public int executaAtac() {
-        return 10; // Daune pentru atac fizic
+        return 15; // Daune pentru suflu de foc
     }
-
     @Override
     public String descriere() {
-        return "Atac Fizic";
+        return "Suflu de Foc";
     }
 }

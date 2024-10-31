@@ -6,12 +6,20 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Monstru extends StocHrana{
-
+    private String nume;
+    private int cantitateViata;
+    private int putereAtac;
     static JButton Ionel;
     static JButton Gica;
     JButton vacaJPG;
     Object[] options = {"Hraneste dragonul", "Vezi info despre dragon"};
     private static JFrame info;
+
+    public Monstru(String nume, int cantitateViata, int putereAtac){
+        this.nume = nume;
+        this.cantitateViata  = cantitateViata;
+        this.putereAtac = putereAtac;
+    }
 
     public Monstru() {
 
@@ -138,9 +146,23 @@ public class Monstru extends StocHrana{
     public static JButton getGica(){
         return Gica;
     }
-    public JButton getVacaJPG(){
-        return this.vacaJPG;
+
+    public String getNume(){
+        return this.nume;
     }
+
+    public int getCantitateViata(){
+        return this.cantitateViata;
+    }
+
+    public int getPutereAtac(){
+        return this.putereAtac;
+    }
+
+    public void scadeViata(int daune){
+        this.cantitateViata -= daune;
+    }
+
 
     private void Hraneste() {
         String produs = JOptionPane.showInputDialog(null, "Cu ce produs doresti sa hranesti dragonul?", "Intrebare", JOptionPane.QUESTION_MESSAGE);
@@ -164,6 +186,7 @@ public class Monstru extends StocHrana{
             JOptionPane.showMessageDialog(null, "Produsul nu a fost introdus!");
         }
     }
+
 
     private static JFrame getInfo(String infoText){
         info = new JFrame();

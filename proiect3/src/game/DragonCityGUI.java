@@ -1,6 +1,8 @@
 package game;
 
-import game.logic.FightLogic;
+import game.logic.Atac;
+import game.logic.Batalie;
+import game.logic.BatalieDragoni;
 import game.staff.*;
 
 import javax.swing.*;
@@ -44,7 +46,7 @@ public class DragonCityGUI implements  ActionListener{
 
         public void initalizareUI() {
 
-            panel = new BackgroundPanel("Panel principal");
+            panel = new Background("Panel principal");
 
             frame = new JFrame();
 
@@ -362,25 +364,34 @@ public class DragonCityGUI implements  ActionListener{
             panelButon.add(Box.createRigidArea(new Dimension(0, 10)));
             panelButon.add(Grajduri);
 
-            JButton Batalie = new JButton("Intra intr-o noua batalie!");
-            Batalie.setAlignmentX(Component.CENTER_ALIGNMENT);
-            Batalie.setForeground(Color.BLACK);
-            Batalie.setBackground(Color.ORANGE);
-            Batalie.setOpaque(true);
-            Batalie.setBorder(BorderFactory.createCompoundBorder(
+            JButton butonBatalie = new JButton("Intra intr-o noua batalie!");
+            butonBatalie.setAlignmentX(Component.CENTER_ALIGNMENT);
+            butonBatalie.setForeground(Color.BLACK);
+            butonBatalie.setBackground(Color.ORANGE);
+            butonBatalie.setOpaque(true);
+            butonBatalie.setBorder(BorderFactory.createCompoundBorder(
                     BorderFactory.createLineBorder(Color.ORANGE, 2),
                     BorderFactory.createEmptyBorder(10, 20, 10, 20)
             ));
 
-            panelButon.add(Box.createRigidArea(new Dimension(0, 10)));
-            panelButon.add(Batalie);
-            FightLogic batalie = new FightLogic();
+            butonBatalie.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    Monstru Ionel = new Monstru("Ionel", 100, 10);
+                    Monstru Gica = new Monstru("Gica", 100, 10);
+                    BatalieDragoni batalie = new BatalieDragoni(Ionel, Gica);
+                    batalie.incepeBatalia();
 
-            Batalie.addActionListener(new ActionListener() {
+                }
+            });
+
+            panelButon.add(Box.createRigidArea(new Dimension(0, 10)));
+            panelButon.add(butonBatalie);
+
+            butonBatalie.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     panelButon.setVisible(false);
-                    panel.add(batalie.getBatalie());
                     panel.setVisible(true);
                     panel.revalidate();
                     panel.repaint();

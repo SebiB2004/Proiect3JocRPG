@@ -18,7 +18,7 @@ public class Monstru extends StocHrana{
 
         ImageIcon dragon1 = new ImageIcon("C:\\Users\\dariu\\OneDrive\\Desktop\\Proiect3JocRPG\\proiect3\\imagini\\DesertIslandStore.png");
         Ionel = new JButton(dragon1);
-        Ionel.setBounds(260, 70, 280, 280);
+        Ionel.setBounds(170, 80, 280, 280);
         Ionel.setContentAreaFilled(false);
         Ionel.setOpaque(false);
         Ionel.setBorderPainted(false);
@@ -144,9 +144,24 @@ public class Monstru extends StocHrana{
 
     private void Hraneste() {
         String produs = JOptionPane.showInputDialog(null, "Cu ce produs doresti sa hranesti dragonul?", "Intrebare", JOptionPane.QUESTION_MESSAGE);
-        String cantitate = JOptionPane.showInputDialog(null, "Ce cantitate doresti sa oferi dragonului?", "Intrebare", JOptionPane.QUESTION_MESSAGE);
-        if (scadeCantitate(produs, Integer.parseInt(cantitate))) {
-            JOptionPane.showMessageDialog(null, "Ai hranit dragonul cu succes!");
+
+        if(produs != null && !produs.isEmpty()){
+        String cantitateStr = JOptionPane.showInputDialog(null, "Ce cantitate doresti sa oferi dragonului?", "Intrebare", JOptionPane.QUESTION_MESSAGE);
+
+        try {
+            int cantitate = Integer.parseInt(cantitateStr);
+            if (cantitate > 0) {
+                if (scadeCantitate(produs, cantitate)) {
+                    JOptionPane.showMessageDialog(null, "Ai hranit cu succes dragonul!");
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Introduceti o cantitate valida!");
+            }
+        } catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(null, "Cantitatea introdusa nu este valida!");
+        }
+        } else {
+            JOptionPane.showMessageDialog(null, "Produsul nu a fost introdus!");
         }
     }
 

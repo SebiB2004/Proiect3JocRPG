@@ -142,10 +142,6 @@ public class DragonCityGUI implements  ActionListener{
 
             titlu.setBounds(10, 10, 500, 25);
             titlu.setText("Functie: " + intUtil.getText());
-            JLabel autoritate = new JLabel("Autoritatea ta: " + angajat.getAutoritate());
-            autoritate.setFont(new Font("Georgia", Font.BOLD, 20));
-            autoritate.setBounds(290, 10, 210, 25);
-            panel.add(autoritate);
             panel.revalidate();
             panel.repaint();
             panelButon = new JPanel();
@@ -260,6 +256,8 @@ public class DragonCityGUI implements  ActionListener{
             Stoc.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
+                    panel.revalidate();
+                    panel.repaint();
                     panelButon.setVisible(false);
 
                     if(stocHrana == null) {
@@ -297,7 +295,6 @@ public class DragonCityGUI implements  ActionListener{
                                 listaProduse.add(produs);
                                 stocHrana.adaugaProdus(produs);
 
-                                panel.add(stocHrana.getTabelStoc());
                                 panel.revalidate();
                                 panel.repaint();
                             } else {
@@ -339,14 +336,13 @@ public class DragonCityGUI implements  ActionListener{
                     panelButon.setVisible(false);
                     panel.add(Monstru.getIonel());
                     panel.add(Monstru.getGica());
-                    autoritate.setBounds(570, 10, 210, 25);
-                    frame.setSize(800, 800);
+                    frame.setSize(600, 600);
 
 
                     JButton buttonBack = back();
                     panel.add(buttonBack);
                     buttonBack.setVisible(true);
-                    buttonBack.setBounds(150, 50, 150, 100);
+                    buttonBack.setBounds(150, 30, 150, 100);
                     buttonBack.addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
@@ -354,7 +350,7 @@ public class DragonCityGUI implements  ActionListener{
                             buttonBack.setVisible(false);
                             panel.remove(Monstru.getIonel());
                             panel.remove(Monstru.getGica());
-                            frame.setSize(500, 500);
+                            frame.setSize(600, 600);
                         }
                     });
 

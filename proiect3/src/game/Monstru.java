@@ -16,9 +16,9 @@ public class Monstru extends StocHrana{
     public Monstru() {
 
 
-        ImageIcon dragon1 = new ImageIcon("C:\\Users\\dariu\\OneDrive\\Desktop\\Proiect3JocRPG\\proiect3\\imagini\\180px-lightningdragonstore.png");
+        ImageIcon dragon1 = new ImageIcon("C:\\Users\\dariu\\OneDrive\\Desktop\\Proiect3JocRPG\\proiect3\\imagini\\DesertIslandStore.png");
         Ionel = new JButton(dragon1);
-        Ionel.setBounds(285, 70, 230, 230);
+        Ionel.setBounds(260, 70, 280, 280);
         Ionel.setContentAreaFilled(false);
         Ionel.setOpaque(false);
         Ionel.setBorderPainted(false);

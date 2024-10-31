@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-// salut Denis 
+// salut Sebi
 public class DragonCityGUI implements  ActionListener{
 
         private static JPanel panel;
@@ -44,7 +44,7 @@ public class DragonCityGUI implements  ActionListener{
 
         public void initalizareUI() {
 
-            panel = new BackgroundPanel();
+            panel = new BackgroundPanel("Panel principal");
 
             frame = new JFrame();
 
@@ -143,7 +143,7 @@ public class DragonCityGUI implements  ActionListener{
             titlu.setBounds(10, 10, 500, 25);
             titlu.setText("Functie: " + intUtil.getText());
             JLabel autoritate = new JLabel("Autoritatea ta: " + angajat.getAutoritate());
-            autoritate.setFont(new Font("Georgia", Font.BOLD, 25));
+            autoritate.setFont(new Font("Georgia", Font.BOLD, 20));
             autoritate.setBounds(290, 10, 210, 25);
             panel.add(autoritate);
             panel.revalidate();
@@ -161,8 +161,8 @@ public class DragonCityGUI implements  ActionListener{
             buttonBack.setVisible(false);
 
             ListAngajati.setAlignmentX(Component.CENTER_ALIGNMENT);
-            ListAngajati.setForeground(Color.ORANGE);
-            ListAngajati.setBackground(Color.GRAY);
+            ListAngajati.setForeground(Color.BLACK);
+            ListAngajati.setBackground(Color.ORANGE);
             ListAngajati.setOpaque(true);
             ListAngajati.setBorder(BorderFactory.createCompoundBorder(
                     BorderFactory.createLineBorder(Color.ORANGE, 2),
@@ -248,8 +248,9 @@ public class DragonCityGUI implements  ActionListener{
 
             JButton Stoc = new JButton("Stoc Hrana");
             Stoc.setAlignmentX(Component.CENTER_ALIGNMENT);
-            Stoc.setForeground(Color.ORANGE);
-            Stoc.setBackground(Color.gray);
+            Stoc.setForeground(Color.BLACK);
+            Stoc.setBackground(Color.ORANGE);
+            Stoc.setContentAreaFilled(true);
             Stoc.setOpaque(true);
             Stoc.setBorder(BorderFactory.createCompoundBorder(
                     BorderFactory.createLineBorder(Color.ORANGE, 2),
@@ -279,7 +280,7 @@ public class DragonCityGUI implements  ActionListener{
 
 
                     JButton adaugaStoc = new JButton("Adauga un nou produs");
-                    adaugaStoc.setBounds(150, 280, 200, 50);
+                    adaugaStoc.setBounds(200, 390, 200, 50);
                     panel.add(adaugaStoc);
                     JButton buttonBack = back();
                     buttonBack.setVisible(true);
@@ -317,7 +318,6 @@ public class DragonCityGUI implements  ActionListener{
                     });
                 }
             });
-            Stoc.setContentAreaFilled(false);
             panelButon.add(Box.createRigidArea(new Dimension(0, 10)));
             panelButon.add(Stoc);
 
@@ -325,8 +325,8 @@ public class DragonCityGUI implements  ActionListener{
             Monstru monstru = new Monstru();
 
             Grajduri.setAlignmentX(Component.CENTER_ALIGNMENT);
-            Grajduri.setForeground(Color.ORANGE);
-            Grajduri.setBackground(Color.green);
+            Grajduri.setForeground(Color.BLACK);
+            Grajduri.setBackground(Color.ORANGE);
             Grajduri.setOpaque(true);
             Grajduri.setBorder(BorderFactory.createCompoundBorder(
                     BorderFactory.createLineBorder(Color.ORANGE, 2),
@@ -346,6 +346,7 @@ public class DragonCityGUI implements  ActionListener{
                     JButton buttonBack = back();
                     panel.add(buttonBack);
                     buttonBack.setVisible(true);
+                    buttonBack.setBounds(150, 50, 150, 100);
                     buttonBack.addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
@@ -361,20 +362,20 @@ public class DragonCityGUI implements  ActionListener{
             });
 
 
-            Grajduri.setContentAreaFilled(false);
+            panelButon.setBounds(150, 150, 300, 300);
             panelButon.add(Box.createRigidArea(new Dimension(0, 10)));
             panelButon.add(Grajduri);
 
             JButton Batalie = new JButton("Intra intr-o noua batalie!");
             Batalie.setAlignmentX(Component.CENTER_ALIGNMENT);
-            Batalie.setForeground(Color.ORANGE);
-            Batalie.setBackground(Color.green);
+            Batalie.setForeground(Color.BLACK);
+            Batalie.setBackground(Color.ORANGE);
             Batalie.setOpaque(true);
             Batalie.setBorder(BorderFactory.createCompoundBorder(
                     BorderFactory.createLineBorder(Color.ORANGE, 2),
                     BorderFactory.createEmptyBorder(10, 20, 10, 20)
             ));
-            Batalie.setContentAreaFilled(false);
+
             panelButon.add(Box.createRigidArea(new Dimension(0, 10)));
             panelButon.add(Batalie);
             FightLogic batalie = new FightLogic();
@@ -392,14 +393,14 @@ public class DragonCityGUI implements  ActionListener{
 
             JButton Parteneri = new JButton("Parteneri");
             Parteneri.setAlignmentX(Component.CENTER_ALIGNMENT);
-            Parteneri.setForeground(Color.ORANGE);
+            Parteneri.setForeground(Color.BLACK);
             Parteneri.setOpaque(true);
-            Parteneri.setBackground(Color.gray);
+            Parteneri.setBackground(Color.ORANGE);
             Parteneri.setBorder(BorderFactory.createCompoundBorder(
                     BorderFactory.createLineBorder(Color.ORANGE, 2),
                     BorderFactory.createEmptyBorder(10, 20, 10, 20)
             ));
-            Parteneri.setContentAreaFilled(false);
+
             panelButon.add(Box.createRigidArea(new Dimension(0, 10)));
             panelButon.add(Parteneri);
 
@@ -424,7 +425,7 @@ public class DragonCityGUI implements  ActionListener{
 
         public static JButton back(){
             JButton backButton = new JButton("BACK");
-            backButton.setBounds(175, 50, 150, 100);
+            backButton.setBounds(220, 50, 150, 100);
             backButton.setFont(new Font("Arial", Font.BOLD, 20));
             backButton.setContentAreaFilled(false);
             backButton.setOpaque(false);

@@ -19,7 +19,7 @@ public class StocHrana
         tabelStoc.setBackground(Color.ORANGE);
         adaugaProdus(new Produs("Furaj combinat", 100, 15));
         adaugaProdus(new Produs("Porumb boabe", 300, 20));
-        tabelStoc.setBounds(100, 120, 300, 150);
+        tabelStoc.setBounds(150, 225, 300, 150);
         tabelStoc.setBorder(BorderFactory.createLineBorder(Color.BLACK));
     }
     public JTable getTabelStoc(){

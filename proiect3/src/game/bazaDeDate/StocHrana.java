@@ -1,4 +1,4 @@
-package game;
+package game.bazaDeDate;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -22,7 +22,6 @@ public class StocHrana {
         incarcaProdusedinBD();
 
 
-        // Adaugă produse în interfață și în baza de date
         adaugaProdus(new Produs("Mere", 100, 15));
         adaugaProdus(new Produs("Pietre", 300, 20));
         adaugaProdus(new Produs("Afine", 1000, 5));

@@ -1,4 +1,4 @@
-package game.staff;
+package game.Players;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

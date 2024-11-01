@@ -1,4 +1,4 @@
-package game;
+package game.bazaDeDate;
 
 public class Produs {
     private String denumire;

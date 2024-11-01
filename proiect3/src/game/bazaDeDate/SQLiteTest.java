@@ -1,4 +1,4 @@
-package game;
+package game.bazaDeDate;
 
 import java.sql.*;
 

@@ -12,9 +12,6 @@ public class BatalieDragoni extends Batalie {
     @Override
     protected Atac alegereAtac(String numeDragon) {
         String[] optiuni = {"Atac Fizic", "Suflu de Foc", "Lovitură de Aripă"};
-
-        JButton atacFizic = new JButton();
-
         int alegere = JOptionPane.showOptionDialog(null, "Alege atacul pentru " +
                         numeDragon, "Alege atac",
                 JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE,

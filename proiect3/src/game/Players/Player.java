@@ -1,18 +1,17 @@
-package game.staff;
+package game.Players;
 
-public class Angajat {
+public class Player {
 
-    String functie;
+    int level;
     String autoritate;
-    static String[] listaAngajati = {"Ingrijitor", "Manager", "Secretar", "Patron"};
     private String nume;
 
-    public Angajat(){
+    public Player(){
 
     }
 
-    public Angajat(String nume, String functie){
-        this.functie = functie;
+    public Player(String nume, int level){
+        this.level = level;
         this.nume = nume;
     }
 
@@ -20,10 +19,11 @@ public class Angajat {
         return this.nume;
     }
 
-    public String getFunctie(){
+    public int getLevel(){
 
-        return this.functie;
+        return this.level;
     }
+
 
     public void setAutoritate(String autoritate){
         this.autoritate = autoritate;

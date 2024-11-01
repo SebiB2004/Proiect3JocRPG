@@ -1,4 +1,4 @@
-package game;
+package game.logic;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,7 +17,7 @@ public class Background extends JPanel {
         } else if(background.equals("Battlefield")){
             try {
                 backgroundImage = new ImageIcon("C:\\Users\\dariu\\OneDrive\\Desktop\\Proiect3JocRPG\\proiect3\\imagini\\" +
-                        "stone-battleground-platform-at-night-neon-runes-free-vector.jpg").getImage();
+                        "gaming-vector-background-landscape-video-game-fantasy-wallpaper-mountain-posters-controller_597121-629.jpg").getImage();
             } catch (Exception e) {
                 System.err.println("Imaginea nu a fost găsită: " + e.getMessage());
             }
